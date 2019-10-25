@@ -1,13 +1,28 @@
 ---
-  title:"Model Details for example_package"
+title: "asignment 2 week 4 in R"
 author: "Nour Qweder"
-date: Sys.Date()
-output: rmarkdown::html_vignette
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+
 vignette: >
-  %\VignetteIndexEntry{Model Details for example_package}
-%\VignetteEngine{knitr::rmarkdown}
-%\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{Simulate A Ridge regression package in R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+
 ---
-  ```{r load_mtcars}
-data(mtcars)
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
 ```
