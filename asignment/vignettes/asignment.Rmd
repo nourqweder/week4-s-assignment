@@ -1,0 +1,13 @@
+---
+  title:"Model Details for example_package"
+author: "Nour Qweder"
+date: Sys.Date()
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Model Details for example_package}
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteEncoding{UTF-8}
+---
+  ```{r load_mtcars}
+data(mtcars)
+```
