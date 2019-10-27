@@ -43,7 +43,7 @@ library(asignment)
 ## The `fars_read_years` function
 the folloing example:
 
-`fars_summarize_years`
+
 ```{r read_years}
 years <- c(2013,2014,2015)
 fars_read_years(years)[[1]]
@@ -55,8 +55,9 @@ the folloing example:
 ```{r initiate, eval=FALSE}
 fars_summarize_years(years)
 ```
+
 ```{r run_summarize, echo=FALSE}
-fars_summarize_years(c(2013,2014,2015))
+fars_summarize_years(2015)
 ```
 
 ## The `fars_map_state` function
