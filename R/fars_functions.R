@@ -1,11 +1,26 @@
-#'@title fars_read
-#'@description Reas CSV file and display the data
-#'@references https://www.coursera.org/learn/r-packages/peer/25XGp/documenting-code
-#'@param filename the file name which looking for to display its data
-#'@example fars_read(".\data\accident_2013.csv")
-#'@export
-#'@return data table with file's data 
-
+#' Read in CSV file.
+#'
+#' Read the CSV file containing American public yearly data
+#' regarding fatal injuries suffered in motor vehicle traffic crashes, then
+#' convert the default dataframe format to tibble.
+#'
+#' @param filename name of CSV file
+#'
+#' @return Tibble of read-in dataset
+#'
+#'
+#' @examples
+#' \dontrun{fars_read("accident_2013.csv")}
+#'
+#' @details
+#' \itemize{
+#'  \item{}{If the \code{filename} does not exist in the current dictionary, R
+#' will be stopped and pose a warning massage}
+#'  \item{}{User is recommended to initially install package \code{\link{readr}}
+#' and \code{\link{dplyr}}}
+#' }
+#'
+#' @export
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
@@ -20,10 +35,21 @@ fars_read <- function(filename) {
 #'@title make_filename
 #'@description rename a specific CSV file and print the the name after renaming
 #'@references https://www.coursera.org/learn/r-packages/peer/25XGp/documenting-code
-#'@param year input from user 
-#'@example make_filename(2019) 
-#'@export
-#'@return renamed file by adding year to the end
+#'Make name for read-in dataset of specific year
+#'
+#'Make name for the CSV file containing Americam public
+#'yearly data regarding fatal injuries suffered in motor
+#'vehicle traffic crashes.
+#'
+#' @param year integer or string specifying
+#' year of the dataset ready to be read in.
+#'
+#' @return string or a vector of strings specifying the CSV file name.
+#'
+#' @examples
+#' \dontrun{make_filename <- function(2013)}
+#'
+#' @export
 make_filename <- function(year) {
   year <- as.integer(year)
   sprintf("accident_%d.csv.bz2", year)
@@ -64,14 +90,36 @@ fars_summarize_years <- function(years) {
     tidyr::spread(year, n)
 }
 #---------------------------------------
-#'@title fars_map_state
-#'@description Reas CSV file and display the data
-#'@references https://www.coursera.org/learn/r-packages/peer/25XGp/documenting-code
-#'@param state.num
-#'@param year
-#'@param state.num  integer number congruous to the state in US 
+#'Plot the spot of crashes
+#'
+#'Plot the spot of fatal injuries suffered in motor vehicle
+#'traffic crashes on the map of the state specified by state
+#'number.
+#'
+#' 
+#' @param state.num string or integer specifying the state number
+#' corresponing to an existing state in US
+#'
+#' @param year integer specifying year of the dataset ready to be
+#' read in
+#'
+#' @return Plot of crashes on the map by latitude and longitude
+#'
+#'@examples
+#' \dontrun{year <- 2013
+#' state.num <- "31"
+#' fars_map_state(state.num,year)}
+#'
+#'@details
+#' \itemize{
+#'  \item{}{Valid years are exclusively 2013, 2014 and 2015, an error
+#'  message will be post and program will be stopped if invalid years
+#'  are inputted}
+#'  \item{}{User is required to install prerequisted package \code{\link{dplyr}}
+#'  and \code{\link{maps}}, an error message will be post and program will be stopped}
+#'  }
+#'
 #'@export
-#'@return It plots a map a car information according to a givein US stateic
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)
