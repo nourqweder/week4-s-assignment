@@ -26,3 +26,38 @@ knitr::opts_chunk$set(
   echo = TRUE
 )
 ```
+
+
+## Introduction
+The package YGWLGiaoGiao is mainly used for present summary and plots of American public yearly data
+regarding fatal injuries suffered in motor vehicle traffic crashes. Users can leverage the functions in the package to point to and read in CSV files containing crashes data across years from 2013 to 2015, see the summaries of occurence of crashes by month for certain year, and finally plot the spot of crashes trough importing package `maps()`.
+
+Before using the functions in the package, you should first load in the necessary packages including the pacakge itself
+```{r load-in,message=FALSE}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(asignment)
+```
+
+## The `fars_read_years` function
+the folloing example:
+
+`fars_summarize_years`
+```{r read_years}
+years <- c(2013,2014,2015)
+fars_read_years(years)[[1]]
+```
+
+## The `fars_summarize` function 
+the folloing example:
+
+```{r initiate, eval=FALSE}
+fars_summarize_years(years)
+```
+```{r run_summarize, echo=FALSE}
+fars_summarize_years(c(2013,2014,2015))
+```
+
+## The `fars_map_state` function
+
