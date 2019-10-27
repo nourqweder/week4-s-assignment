@@ -57,7 +57,7 @@ fars_summarize_years(years)
 ```
 
 ```{r run_summarize, echo=FALSE}
-fars_summarize_years(2015)
+#fars_summarize_years(2015)
 ```
 
 ## The `fars_map_state` function
